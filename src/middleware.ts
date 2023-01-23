@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { Buffer } from 'buffer'
 
 const credentials = {
   username: process.env.BASIC_AUTH_USER,
