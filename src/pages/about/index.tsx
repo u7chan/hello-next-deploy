@@ -1,15 +1,16 @@
-import { useEffect, useState } from 'react';
+import { NextPage } from 'next'
+import { useEffect, useState } from 'react'
 
-export default function Page() {
-  const [ip, setIp] = useState('');
+const Page: NextPage = () => {
+  const [ip, setIp] = useState('')
   useEffect(() => {
     const api = async (): Promise<string> => {
-      const result = await fetch(`/api/ip`);
-      const { ip } = await result.json();
-      return ip;
-    };
-    api().then((data) => setIp(data));
-  }, []);
+      const result = await fetch(`/api/ip`)
+      const { ip } = await result.json()
+      return ip
+    }
+    api().then((data) => setIp(data))
+  }, [])
   return (
     <>
       {ip ? (
@@ -21,5 +22,7 @@ export default function Page() {
         <p>Loading...</p>
       )}
     </>
-  );
+  )
 }
+
+export default Page
